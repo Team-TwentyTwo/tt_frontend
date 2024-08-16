@@ -1,0 +1,11 @@
+.buttonContainer {
+  position: absolute;
+  top: 27px; 
+  right: 5%; 
+}
+
+.makeButton {
+  width: 200px;
+  height: 45px;
+  cursor: pointer;
+}

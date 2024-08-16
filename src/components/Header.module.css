@@ -4,15 +4,12 @@
   align-items: center;
   justify-content: center;
   background-color: #FAFAFA;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  position: relative;
 }
 
 .logo {
-  max-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
 }

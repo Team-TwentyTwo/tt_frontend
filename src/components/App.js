@@ -1,13 +1,12 @@
-import Header from "./Header";
+import Group from "../pages/Group";
+import styles from './App.module.css';
 
 function App() {
   return (
-    <>
-      <Header />
-    </>
+    <div className={styles.appContainer}>
+      <Group />
+    </div>
   );
 }
-
-// 테스트 주석입니다.
 
 export default App;

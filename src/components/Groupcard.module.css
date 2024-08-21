@@ -1,0 +1,16 @@
+.cardContainer {
+  width: 290px;
+  background-color: #FAFAFA;
+  border: 1px solid #DDDDDD;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.title {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.cardContainer p {
+  margin: 5px 0;
+}

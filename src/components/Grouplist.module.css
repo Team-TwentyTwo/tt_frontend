@@ -7,7 +7,22 @@
 .emptyMessage {
   text-align: center;
   width: 100%;
-  font-size: 18px;
-  color: #888;
+  font-size: 20px;
+  color: #8D8D8D;
   padding: 50px 0;
+}
+
+.noGroupsMessage {
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.suggestCreateGroup {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #8D8D8D;
+}
+
+.createButton {
+  margin-top: 100px;
 }

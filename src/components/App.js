@@ -1,4 +1,5 @@
 import Group from "../pages/Group";
+import Makegroup from "../pages/Makegroup";
 import styles from './App.module.css';
 
 function App() {

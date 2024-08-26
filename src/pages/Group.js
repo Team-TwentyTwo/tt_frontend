@@ -1,12 +1,14 @@
 import { useState } from "react";
-import Header from "../components/Header";
-import Menubar from "../components/Menubar";
-import mbutton from "../assets/group_makebtn_m.svg";
+import Header from '../components/Header';
+import Menubar from '../components/Menubar';
+import mbutton from '../assets/group_makebtn_m.svg';
 import styles from './Group.module.css';
-import Grouplist from "../components/Grouplist";
+import Grouplist from '../components/Grouplist';
 
 function Group() {
   const [activeTab, setActiveTab] = useState('public');
+  const [sortBy, setSortBy] = useState('latest');  
+  const [searchTerm, setSearchTerm] = useState('');  
 
   const handleButtonClick = () => {
     console.log("그룹 만들기 요청");
@@ -14,58 +16,50 @@ function Group() {
 
   const groupCards = [
     {
-      status: 'D+265  |  공개',
+      id: 1,
       name: '달봉이네 가족',
-      description: '서로 한 마음으로 응원하고 아끼는 달봉이네 가족입니다.',
-      badges: '획득 배지 2, 추억 8, 그룹 공감 1.5K'
+      imageURL: '/path/to/image.jpg',
+      isPublic: true,
+      likeCount: 1500,
+      badgesCount: 2,
+      postCount: 8,
+      createdAt: '2024-02-22T07:47:49.803Z',
+      introduction: '서로 한 마음으로 응원하고 아끼는 달봉이네 가족입니다.'
     },
     {
-      status: 'D+265  |  공개',
-      name: '달봉이네 가족',
-      description: '서로 한 마음으로 응원하고 아끼는 달봉이네 가족입니다.',
-      badges: '획득 배지 2, 추억 8, 그룹 공감 1.5K'
-    },
-    {
-      status: 'D+265  |  공개',
-      name: '달봉이네 가족',
-      description: '서로 한 마음으로 응원하고 아끼는 달봉이네 가족입니다.',
-      badges: '획득 배지 2, 추억 8, 그룹 공감 1.5K'
-    },
-    {
-      status: 'D+265  |  공개',
-      name: '달봉이네 가족',
-      description: '서로 한 마음으로 응원하고 아끼는 달봉이네 가족입니다.',
-      badges: '획득 배지 2, 추억 8, 그룹 공감 1.5K'
-    },
-    {
-      status: 'D+265  |  공개',
-      name: '달봉이네 가족',
-      description: '서로 한 마음으로 응원하고 아끼는 달봉이네 가족입니다.',
-      badges: '획득 배지 2, 추억 8, 그룹 공감 1.5K'
-    },
-    {
-      status: 'D+265  |  공개',
-      name: '달봉이네 가족',
-      description: '서로 한 마음으로 응원하고 아끼는 달봉이네 가족입니다.',
-      badges: '획득 배지 2, 추억 8, 그룹 공감 1.5K'
-    },
-    {
-      status: 'D+265  |  공개',
-      name: '달봉이네 가족',
-      description: '서로 한 마음으로 응원하고 아끼는 달봉이네 가족입니다.',
-      badges: '획득 배지 2, 추억 8, 그룹 공감 1.5K'
-    },
-    {
-      status: 'D+265  |  공개',
-      name: '달봉이네 가족',
-      description: '서로 한 마음으로 응원하고 아끼는 달봉이네 가족입니다.',
-      badges: '획득 배지 2, 추억 8, 그룹 공감 1.5K'
+      id: 2,
+      name: '하윤이네 가족',
+      imageURL: '/path/to/image.jpg',
+      isPublic: true,
+      likeCount: 1104,
+      badgesCount: 3,
+      postCount: 6,
+      createdAt: '2003-02-22T07:47:49.803Z',
+      introduction: '하윤이네 가족 소개입니다.'
     }
   ];
 
-  const filteredCards = groupCards.filter(card => 
-    activeTab === 'public' ? card.status.includes('공개') : card.status.includes('비공개')
-  );
+  const filteredCards = groupCards
+    .filter(card => 
+      activeTab === 'public' ? card.isPublic : !card.isPublic
+    )
+    .filter(card => 
+      card.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => {
+      switch (sortBy) {
+        case 'latest':
+          return new Date(b.createdAt) - new Date(a.createdAt);
+        case 'mostPosted':
+          return b.postCount - a.postCount;
+        case 'mostLiked':
+          return b.likeCount - a.likeCount;
+        case 'mostBadge':
+          return b.badgesCount - a.badgesCount;
+        default:
+          return 0;
+      }
+    });
 
   return (
     <>
@@ -80,7 +74,13 @@ function Group() {
         </div>
       </Header>
       <div>
-        <Menubar activeTab={activeTab} setActiveTab={setActiveTab} />
+        <Menubar 
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          setSortBy={setSortBy} 
+          searchTerm={searchTerm} 
+          setSearchTerm={setSearchTerm}
+        />
       </div>
       <div>
         <Grouplist cards={filteredCards} />

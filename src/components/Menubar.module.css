@@ -77,3 +77,23 @@
   position: absolute;
   right: 10px;
 }
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #282828;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.dropdownMenu > div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdownMenu > div:hover {
+  background-color: #F4F4F4;
+}

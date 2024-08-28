@@ -6,10 +6,12 @@ import chueokfish from '../assets/chueok_fish.png';
 import commentbtnImg from '../assets/chueok_commentbtn.svg';
 import Likebutton from '../components/Likebutton';
 import styles from './Chueok.module.css';
+import Header from '../components/Header';
 
 function Chueok() {
   return (
-    <>
+    <> 
+      <Header></Header>
       <div>
         <h1 className={styles.titles}>인천 앞바다에서 무려 60cm 월척을 낚다!</h1>
       </div> 
@@ -46,8 +48,8 @@ function Chueok() {
       </div>
       <div>
         <p className={styles.text}>
-          인천 앞바다에서 월척을 낚았습니다!<br/>
-          가족들과 기억에 오래도록 남을 멋진 하루였어요<br/>
+          인천 앞바다에서 월척을 낚았습니다!
+          가족들과 기억에 오래도록 남을 멋진 하루였어요
         </p>
       </div>
       <div>

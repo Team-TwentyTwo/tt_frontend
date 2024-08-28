@@ -2,15 +2,15 @@ import Header from "../components/Header";
 import styles from './Privategroup.module.css';
 import sbutton from '../assets/button_submit.svg';
 
-function Privategroup() {
+function Privatechueok() {
 
   return (
     <>
       <Header />
       <div className={styles.container}>
-        <h1 className={styles.title}>비공개 그룹</h1>
+        <h1 className={styles.title}>비공개 추억</h1>
         <div className={styles.description}>
-          비공개 그룹에 접근하기 위해 권한 확인이 필요합니다.
+          비공개 추억에 접근하기 위해 권한 확인이 필요합니다.
         </div>
 
         <div className={styles.inputGroup}>
@@ -33,4 +33,4 @@ function Privategroup() {
   );
 }
 
-export default Privategroup;
+export default Privatechueok;

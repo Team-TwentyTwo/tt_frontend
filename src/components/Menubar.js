@@ -22,7 +22,24 @@ function Menubar({ activeTab, setActiveTab, setSortBy, searchTerm, setSearchTerm
   const handleSortChange = (sortOption) => {
     setSelectedSort(sortOption);
     setIsDropdownOpen(false);
-    setSortBy(sortOption);
+
+    switch (sortOption) {
+      case '최신순':
+        setSortBy('latest');
+        break;
+      case '게시글 많은순':
+        setSortBy('mostPosted');
+        break;
+      case '공감순':
+        setSortBy('mostLiked');
+        break;
+      case '획득 배지순':
+        setSortBy('mostBadge');
+        break;
+      default:
+        setSortBy('latest');
+        break;
+    }
   };
 
   return (

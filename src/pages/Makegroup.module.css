@@ -42,11 +42,20 @@
   align-items: center;
 }
 
-.fileInput {
+.hiddenFileInput {
+  display: none;
+}
+
+.fileDisplayInput {
   flex: 1;
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #DDDDDD;
+  cursor: not-allowed;
+}
+
+.fileDisplayInput::placeholder {
+  color: #B8B8B8;
 }
 
 .fileButton {
@@ -76,21 +85,12 @@
 .tab {
   width: 48px;
   height: 24px;
-  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.activeTab {
-  background-color: #282828;
-}
-
-.inactiveTab {
-  background-color: #DDDDDD;
 }
 
 .mbuttonContainer {
   text-align: center;
+  margin-top: 30px;
 }
 
 .makeButton {

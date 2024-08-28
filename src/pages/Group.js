@@ -31,11 +31,44 @@ function Group() {
       name: '하윤이네 가족',
       imageURL: '/path/to/image.jpg',
       isPublic: true,
-      likeCount: 1104,
-      badgesCount: 3,
-      postCount: 6,
-      createdAt: '2003-02-22T07:47:49.803Z',
+      likeCount: 1000,
+      badgesCount: 10,
+      postCount: 4,
+      createdAt: '2023-11-04T07:47:49.803Z',
       introduction: '하윤이네 가족 소개입니다.'
+    },
+    {
+      id: 3,
+      name: '지연이네 가족',
+      imageURL: '/path/to/image.jpg',
+      isPublic: false,
+      likeCount: 500,
+      badgesCount: 0,
+      postCount: 100,
+      createdAt: '2024-08-22T07:47:49.803Z',
+      introduction: '지연이네 가족 소개입니다.'
+    },
+    {
+      id: 4,
+      name: '유정이네 가족',
+      imageURL: '/path/to/image.jpg',
+      isPublic: false,
+      likeCount: 150,
+      badgesCount: 10,
+      postCount: 10,
+      createdAt: '2024-08-23T07:47:49.803Z',
+      introduction: '유정이네 가족 소개입니다.'
+    },
+    {
+      id: 5,
+      name: '종윤이네 가족',
+      imageURL: '/path/to/image.jpg',
+      isPublic: false,
+      likeCount: 2000,
+      badgesCount: 15,
+      postCount: 0,
+      createdAt: '2020-08-22T07:47:49.803Z',
+      introduction: '종윤이네 가족 소개입니다.'
     }
   ];
 
@@ -83,7 +116,7 @@ function Group() {
         />
       </div>
       <div>
-        <Grouplist cards={filteredCards} />
+        <Grouplist cards={filteredCards} activeTab={activeTab} />
       </div>
     </>
   );

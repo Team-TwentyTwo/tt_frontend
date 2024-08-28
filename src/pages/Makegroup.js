@@ -1,10 +1,13 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import styles from './Makegroup.module.css';
-import mbutton from '../assets/group_makebtn_l.svg';
+import mbutton from '../assets/button_make.svg';
+import tabOnBtn from '../assets/tab_active.svg';
+import tabOffBtn from '../assets/tab_default.svg';
 
 function Makegroup() {
   const [isPublic, setIsPublic] = useState(true);
+  const [fileInfo, setFileInfo] = useState('');
 
   const handleTabClick = () => {
     setIsPublic(!isPublic);
@@ -14,12 +17,19 @@ function Makegroup() {
     console.log("그룹 만들기 성공");
   };
 
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setFileInfo(`${file.name} (${(file.size / 1024).toFixed(2)}KB, ${file.type})`);
+    }
+  };
+
   return (
     <>
       <Header />
       <div className={styles.container}>
         <h1 className={styles.title}>그룹 만들기</h1>
-        
+
         <div className={styles.inputGroup}>
           <label className={styles.label}>그룹명</label>
           <input
@@ -34,10 +44,23 @@ function Makegroup() {
           <div className={styles.fileInputWrapper}>
             <input
               type="file"
-              placeholder="파일을 선택해 주세요"
-              className={styles.fileInput}
+              id="fileInput"
+              onChange={handleFileChange}
+              className={styles.hiddenFileInput}
             />
-            <button className={styles.fileButton}>파일 선택</button>
+            <input
+              type="text"
+              value={fileInfo}
+              placeholder="파일을 선택해 주세요"
+              className={styles.fileDisplayInput}
+              readOnly
+            />
+            <button 
+              className={styles.fileButton} 
+              onClick={() => document.getElementById('fileInput').click()}
+            >
+              파일 선택
+            </button>
           </div>
         </div>
 
@@ -53,10 +76,12 @@ function Makegroup() {
           <label className={styles.label}>그룹 공개 선택</label>
           <div className={styles.tabWrapper}>
             <span className={styles.tabText}>{isPublic ? '공개' : '비공개'}</span>
-            <div
-              className={`${styles.tab} ${isPublic ? styles.activeTab : styles.inactiveTab}`}
+            <img
+              src={isPublic ? tabOnBtn : tabOffBtn}
+              alt="탭 버튼"
+              className={styles.tab}
               onClick={handleTabClick}
-            ></div>
+            />
           </div>
         </div>
 
@@ -68,10 +93,11 @@ function Makegroup() {
             className={styles.input}
           />
         </div>
+
         <div className={styles.mbuttonContainer}>
           <img 
             src={mbutton} 
-            alt="그룹 만들기 버튼" 
+            alt="만들기 버튼" 
             className={styles.makeButton} 
             onClick={handleButtonClick} 
           />

@@ -45,6 +45,7 @@ function Makegroup() {
             <input
               type="file"
               id="fileInput"
+              accept="image/*"
               onChange={handleFileChange}
               className={styles.hiddenFileInput}
             />

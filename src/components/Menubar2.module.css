@@ -1,0 +1,99 @@
+.menubarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.tabBar {
+  display: flex;
+  gap: 10px;
+}
+
+.tabButton {
+  width: 66px;
+  height: 45px;
+  border-radius: 22.5px;
+  background-color: transparent;
+  border: none;
+  color: #282828;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.tabButton.active {
+  background-color: #282828;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.searchContainer {
+  position: relative;
+  flex-grow: 1;
+  max-width: 70%;
+}
+
+.searchBar {
+  width: 100%;
+  height: 30px;
+  padding: 10px 10px 10px 40px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #F4F4F4;
+}
+
+.searchBar::placeholder {
+  color: #B8B8B8;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sortFilter {
+  position: relative;
+  width: 140px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 20px;
+  color: #282828;
+  font-size: 14px;
+  border: 1px solid #282828;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sortIcon {
+  position: absolute;
+  right: 10px;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #282828;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.dropdownMenu > div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdownMenu > div:hover {
+  background-color: #F4F4F4;
+}

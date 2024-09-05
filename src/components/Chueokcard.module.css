@@ -1,0 +1,36 @@
+.cardContainer {
+  width: 290px;
+  background-color: #FAFAFA;
+  border: 1px solid #DDDDDD;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.groupImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.cardContent p {
+  margin: 5px 0;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #282828;
+}

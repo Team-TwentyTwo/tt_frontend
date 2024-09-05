@@ -1,0 +1,12 @@
+.chueoklist {
+  margin-top: 68px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.noPosts {
+  text-align: center;
+  font-size: 18px;
+  color: #B8B8B8;
+}

@@ -1,0 +1,62 @@
+.groupinfo {
+  display: flex;
+  margin-top: 60px;
+}
+
+.image {
+  width: 260px;
+  height: 260px;
+  margin-right: 60px;
+}
+
+.info {
+  flex-grow: 1;
+}
+
+.firstLine {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #282828;
+}
+
+.publicStatus {
+  margin-left: 15px;
+  color: #B8B8B8;
+}
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  gap: 40px;
+}
+
+.actions span {
+  cursor: pointer;
+}
+
+.secondLine {
+  display: flex;
+  gap: 40px;
+  font-size: 18px;
+  color: #282828;
+  margin-top: 20px;
+}
+
+.name {
+  font-size: 30px;
+}
+
+.introduction {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #282828;
+}
+
+.badges {
+  margin-top: 60px;
+}
+
+.likeButton {
+  margin-top: 180px;
+}

@@ -19,7 +19,7 @@ function Group() {
       id: 1,
       name: '달봉이네 가족',
       imageURL: '/path/to/image.jpg',
-      isPublic: true,
+      isPublic: false,
       likeCount: 1500,
       badgesCount: 2,
       postCount: 8,

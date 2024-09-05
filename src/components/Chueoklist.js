@@ -6,16 +6,16 @@ function Chueoklist({ groupId, activeTab, searchTerm = '' }) {
     {
       id: 1,
       groupId: 123,
-      nickname: "User1",
-      title: "First Memory",
-      content: "This is the first memory.",
+      nickname: "달봉이아들",
+      title: "에델바이스 꽃말이 소중한 추억이래요",
+      content: "content",
       imageURL: "/images/memory1.jpg",
-      tags: ["fun", "happy"],
-      location: "Seoul",
+      tags: ["#인천", "#낚시"],
+      location: "인천 앞바다",
       moment: "2024-02-21",
       isPublic: true,
-      likeCount: 10,
-      commentCount: 2,
+      likeCount: 120,
+      commentCount: 8,
       createdAt: "2024-02-22T07:47:49.803Z",
     }
   ]; 

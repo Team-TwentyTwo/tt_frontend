@@ -11,15 +11,15 @@ function GroupDetail() {
   const [sortBy, setSortBy] = useState('latest');
 
   const groupData = {
-    id: 123,
-    name: "그룹 이름",
+    id: 1,
+    name: "달봉이네 가족",
     imageURL: "https://example.com/image.jpg",
     isPublic: true,
-    likeCount: 0,
+    likeCount: 1500,
     badges: ["badge1", "badge2"],
-    postCount: 0,
+    postCount: 8,
     createdAt: "2024-02-22T07:47:49.803Z",
-    introduction: "이 그룹은..."
+    introduction: "서로 한 마음으로 응원하고 아끼는 달봉이네 가족입니다."
   };
 
   return (

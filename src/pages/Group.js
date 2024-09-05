@@ -1,98 +1,50 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";  // axios 추가
 import Header from '../components/Header';
 import Menubar from '../components/Menubar';
 import mbutton from '../assets/group_makebtn_m.svg';
 import styles from './Group.module.css';
 import Grouplist from '../components/Grouplist';
+import Pagination from '../components/Pagination'; // 페이지네이션 컴포넌트 추가
 
 function Group() {
   const [activeTab, setActiveTab] = useState('public');
   const [sortBy, setSortBy] = useState('latest');  
   const [searchTerm, setSearchTerm] = useState('');  
+  const [groupCards, setGroupCards] = useState([]);  // 그룹 데이터 상태
+  const [loading, setLoading] = useState(true);  // 로딩 상태
+  const [page, setPage] = useState(1);  // 현재 페이지
+  const [totalPages, setTotalPages] = useState(1);  // 총 페이지 수
 
   const handleButtonClick = () => {
     console.log("그룹 만들기 요청");
   };
 
-  const groupCards = [
-    {
-      id: 1,
-      name: '달봉이네 가족',
-      imageURL: '/path/to/image.jpg',
-      isPublic: false,
-      likeCount: 1500,
-      badgesCount: 2,
-      postCount: 8,
-      createdAt: '2024-02-22T07:47:49.803Z',
-      introduction: '서로 한 마음으로 응원하고 아끼는 달봉이네 가족입니다.'
-    },
-    {
-      id: 2,
-      name: '하윤이네 가족',
-      imageURL: '/path/to/image.jpg',
-      isPublic: true,
-      likeCount: 1000,
-      badgesCount: 10,
-      postCount: 4,
-      createdAt: '2023-11-04T07:47:49.803Z',
-      introduction: '하윤이네 가족 소개입니다.'
-    },
-    {
-      id: 3,
-      name: '지연이네 가족',
-      imageURL: '/path/to/image.jpg',
-      isPublic: true,
-      likeCount: 500,
-      badgesCount: 0,
-      postCount: 100,
-      createdAt: '2024-08-22T07:47:49.803Z',
-      introduction: '지연이네 가족 소개입니다.'
-    },
-    {
-      id: 4,
-      name: '유정이네 가족',
-      imageURL: '/path/to/image.jpg',
-      isPublic: true,
-      likeCount: 150,
-      badgesCount: 10,
-      postCount: 10,
-      createdAt: '2024-08-23T07:47:49.803Z',
-      introduction: '유정이네 가족 소개입니다.'
-    },
-    {
-      id: 5,
-      name: '종윤이네 가족',
-      imageURL: '/path/to/image.jpg',
-      isPublic: true,
-      likeCount: 2000,
-      badgesCount: 15,
-      postCount: 0,
-      createdAt: '2020-08-22T07:47:49.803Z',
-      introduction: '종윤이네 가족 소개입니다.'
-    }
-  ];
-
-  const filteredCards = groupCards
-    .filter(card => 
-      activeTab === 'public' ? card.isPublic : !card.isPublic
-    )
-    .filter(card => 
-      card.name.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .sort((a, b) => {
-      switch (sortBy) {
-        case 'latest':
-          return new Date(b.createdAt) - new Date(a.createdAt);
-        case 'mostPosted':
-          return b.postCount - a.postCount;
-        case 'mostLiked':
-          return b.likeCount - a.likeCount;
-        case 'mostBadge':
-          return b.badgesCount - a.badgesCount;
-        default:
-          return 0;
+  useEffect(() => {
+    // 그룹 목록을 가져오는 함수
+    const fetchGroups = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get('https://zogakzip.onrender.com/api/groups', {
+          params: {
+            page: page,
+            pageSize: 5,  // 한 페이지에 표시할 그룹 수
+            sortBy: sortBy,
+            keyword: searchTerm,
+            isPublic: activeTab === 'public',
+          }
+        });
+        setGroupCards(response.data.data);
+        setTotalPages(response.data.totalPages);  // 총 페이지 수 설정
+      } catch (error) {
+        console.error("그룹 목록을 가져오는 중 오류 발생:", error);
+      } finally {
+        setLoading(false);
       }
-    });
+    };
+
+    fetchGroups();
+  }, [page, sortBy, searchTerm, activeTab]);  // 페이지, 정렬 기준, 검색어, 공개 여부 변경 시마다 호출
 
   return (
     <>
@@ -115,9 +67,15 @@ function Group() {
           setSearchTerm={setSearchTerm}
         />
       </div>
-      <div>
-        <Grouplist cards={filteredCards} activeTab={activeTab} />
-      </div>
+      {loading ? ( 
+        <div> {/* 로딩 중일 때는 빈 화면 */}
+        </div>
+      ) : (
+        <div>
+          <Grouplist cards={groupCards} activeTab={activeTab} />
+          <Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />
+        </div>
+      )}
     </>
   );
 }

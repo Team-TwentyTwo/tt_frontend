@@ -1,9 +1,16 @@
+import { useNavigate } from 'react-router-dom'; 
 import Groupcard from './Groupcard';
 import styles from './Grouplist.module.css';
 import noneIcon from '../assets/group_nocontent.png';
 import mbuttonBig from '../assets/group_makebtn_l.svg';
 
 function Grouplist({ cards, activeTab }) {
+  const navigate = useNavigate();  
+
+  const handleCreateGroupClick = () => {
+    navigate('/makegroup'); 
+  };
+
   if (cards.length === 0) {
     const noGroupsMessage = activeTab === 'public' 
       ? '등록된 공개 그룹이 없습니다.' 
@@ -14,7 +21,12 @@ function Grouplist({ cards, activeTab }) {
         <img src={noneIcon} alt="목록 없음 아이콘" />
         <div className={styles.noGroupsMessage}>{noGroupsMessage}</div>
         <div className={styles.suggestCreateGroup}>가장 먼저 그룹을 만들어보세요!</div>
-        <img src={mbuttonBig} alt="그룹 만들기 버튼" className={styles.createButton} />
+        <img 
+          src={mbuttonBig} 
+          alt="그룹 만들기 버튼" 
+          className={styles.createButton} 
+          onClick={handleCreateGroupClick} 
+        />
       </div>
     );
   }

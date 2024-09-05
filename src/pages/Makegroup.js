@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';  // useNavigate 추가
+import axios from "axios";  // axios 추가
 import Header from "../components/Header";
 import styles from './Makegroup.module.css';
 import mbutton from '../assets/button_make.svg';
@@ -7,20 +9,42 @@ import tabOffBtn from '../assets/tab_default.svg';
 
 function Makegroup() {
   const [isPublic, setIsPublic] = useState(true);
+  const [name, setName] = useState('');  
+  const [password, setPassword] = useState('');  
   const [fileInfo, setFileInfo] = useState('');
+  const [introduction, setIntroduction] = useState('');  
+  const [imageURL, setImageURL] = useState('');
+
+  const navigate = useNavigate(); 
 
   const handleTabClick = () => {
     setIsPublic(!isPublic);
-  };
-
-  const handleButtonClick = () => {
-    console.log("그룹 만들기 성공");
   };
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       setFileInfo(`${file.name} (${(file.size / 1024).toFixed(2)}KB, ${file.type})`);
+      setImageURL('https://example.com/uploaded-image.jpg');
+    }
+  };
+
+  const handleButtonClick = async () => {
+    try {
+      const response = await axios.post('https://zogakzip.onrender.com/api/groups', {
+        name: name,
+        password: password,
+        imageURL: imageURL,
+        isPublic: isPublic,
+        introduction: introduction
+      });
+      
+      if (response.status === 201) {
+        console.log('그룹 생성 성공:', response.data);
+        navigate('/');  
+      }
+    } catch (error) {
+      console.error('그룹 생성 실패:', error.response ? error.response.data : error.message);
     }
   };
 
@@ -36,6 +60,8 @@ function Makegroup() {
             type="text"
             placeholder="그룹명을 입력해 주세요"
             className={styles.input}
+            value={name}
+            onChange={(e) => setName(e.target.value)}  
           />
         </div>
 
@@ -70,6 +96,8 @@ function Makegroup() {
           <textarea
             placeholder="그룹을 소개해 주세요"
             className={`${styles.input} ${styles.textarea}`}
+            value={introduction}
+            onChange={(e) => setIntroduction(e.target.value)}  
           />
         </div>
 
@@ -92,6 +120,8 @@ function Makegroup() {
             type="password"
             placeholder="비밀번호를 입력해 주세요"
             className={styles.input}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}  
           />
         </div>
 
@@ -100,7 +130,7 @@ function Makegroup() {
             src={mbutton} 
             alt="만들기 버튼" 
             className={styles.makeButton} 
-            onClick={handleButtonClick} 
+            onClick={handleButtonClick}  
           />
         </div>
       </div>

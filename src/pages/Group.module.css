@@ -9,3 +9,30 @@
   height: 45px;
   cursor: pointer;
 }
+
+.loadingText {
+  text-align: center;
+  color: #B8B8B8;
+}
+
+.loadMoreContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.loadMoreButton {
+  width: 1200px;
+  height: 60px;
+  background-color: #FAFAFA;
+  border: 1px solid #282828;
+  border-radius: 6px;
+  color: #282828;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.loadMoreButton:disabled {
+  background-color: #DDDDDD;
+  cursor: not-allowed;
+}

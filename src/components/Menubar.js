@@ -8,15 +8,15 @@ function Menubar({ activeTab, setActiveTab, setSortBy, searchTerm, setSearchTerm
   const [selectedSort, setSelectedSort] = useState('공감순');
 
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
+    setSearchTerm(e.target.value); 
   };
 
   const handleTabClick = (tab) => {
-    setActiveTab(tab);
+    setActiveTab(tab);  
   };
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    setIsDropdownOpen(!isDropdownOpen);  
   };
 
   const handleSortChange = (sortOption) => {
@@ -25,19 +25,19 @@ function Menubar({ activeTab, setActiveTab, setSortBy, searchTerm, setSearchTerm
 
     switch (sortOption) {
       case '최신순':
-        setSortBy('latest');
+        setSortBy('latest');  // 최신순
         break;
       case '게시글 많은순':
-        setSortBy('mostPosted');
+        setSortBy('mostPosted');  // 게시글 많은 순
         break;
       case '공감순':
-        setSortBy('mostLiked');
+        setSortBy('mostLiked');  // 공감순
         break;
       case '획득 배지순':
-        setSortBy('mostBadge');
+        setSortBy('mostBadge');  // 획득 배지순
         break;
       default:
-        setSortBy('latest');
+        setSortBy('latest');  // 기본값: 최신순
         break;
     }
   };
@@ -65,7 +65,7 @@ function Menubar({ activeTab, setActiveTab, setSortBy, searchTerm, setSearchTerm
           placeholder="그룹명을 검색해 주세요"
           className={styles.searchBar}
           value={searchTerm}
-          onChange={handleSearchChange}
+          onChange={handleSearchChange}  // 검색어 입력 처리
         />
       </div>
       <div className={styles.sortFilter} onClick={toggleDropdown}>

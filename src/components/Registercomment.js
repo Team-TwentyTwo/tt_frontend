@@ -1,9 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Registercomment.module.css';
 import registerbutton from '../assets/register_button.svg';
 
 
-function Registercomment() {
+function Registercomment({ onClose }) {
+  
+  const [fileInfo, setFileInfo] = useState('');
+  const [isPublic, setIsPublic] = useState(false);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setFileInfo(file ? file.name : '');
+  };
+
+  const handleTabClick = () => {
+    setIsPublic(!isPublic);
+  };
     return (
       <>
         

@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 300px);
+    z-index: 10000;
   
   }
   
@@ -21,12 +22,15 @@
   }
   
   .inputGroup {
-  
     width: 400px;
     height: 75px;
-    margin: -280px auto 0 auto; /* 위로 100px 이동 */
+    position: relative; /* 부모 요소에 상대 위치 설정 필요 */
+    top: -700px; /* 위쪽으로 이동 */
+    margin: 0 auto; /* 수평 중앙 정렬 */
     opacity: 1;
   }
+  
+  
   
   
   
@@ -86,4 +90,29 @@
       padding: 6.68px 0px 0px 0px; /* 상단 패딩을 설정 */
       opacity: 1;        /* 요소를 보이도록 설정 */
     }
+
+    .modalconainer {
+      background: white;
+      z-index: 1001;
+      position: relative;
+      padding: 20px; /* 모달 내부 여백 */
+      max-height: 1000px; /* 최대 너비 설정 */
+      max-width: 70%;
+      width: auto;
+      height: auto; 
+  
+    }
     
+      /* 모달 배경을 어둡게 처리 */
+  .modalBackdrop {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);  /* 반투명 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }

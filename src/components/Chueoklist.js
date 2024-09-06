@@ -1,5 +1,6 @@
 import styles from './Chueoklist.module.css';
 import Chueokcard from './Chueokcard';
+import fishImage from '../assets/chueok_fish.png';
 
 function Chueoklist({ groupId, activeTab, searchTerm = '' }) {
   const posts = [
@@ -7,9 +8,9 @@ function Chueoklist({ groupId, activeTab, searchTerm = '' }) {
       id: 1,
       groupId: 123,
       nickname: "달봉이아들",
-      title: "에델바이스 꽃말이 소중한 추억이래요",
+      title: "인천 앞바다에서 무려 60cm 월척을 낚다!",
       content: "content",
-      imageURL: "/images/memory1.jpg",
+      imageURL: fishImage,
       tags: ["#인천", "#낚시"],
       location: "인천 앞바다",
       moment: "2024-02-21",
@@ -21,12 +22,16 @@ function Chueoklist({ groupId, activeTab, searchTerm = '' }) {
   ]; 
 
   const filteredPosts = posts
-    .filter(post => activeTab === 'public' ? post.isPublic : !post.isPublic)
     .filter(post => {
-      const lowerSearchTerm = searchTerm ? searchTerm.toLowerCase() : ''; 
+      if (activeTab === 'public') return post.isPublic;
+      if (activeTab === 'private') return !post.isPublic;
+      return true;
+    })
+    .filter(post => {
+      const lowerSearchTerm = searchTerm ? searchTerm.toLowerCase() : '';
       const titleMatches = post.title ? post.title.toLowerCase().includes(lowerSearchTerm) : false;
-      const tagsMatch = post.tags && Array.isArray(post.tags) 
-        ? post.tags.some(tag => tag.toLowerCase().includes(lowerSearchTerm)) 
+      const tagsMatch = post.tags && Array.isArray(post.tags)
+        ? post.tags.some(tag => tag.toLowerCase().includes(lowerSearchTerm))
         : false;
       return titleMatches || tagsMatch;
     });

@@ -1,7 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './Chueokcard.module.css';
 
 function Chueokcard({ post, isPublicTab }) {
-  const { nickname, title, tags, location, createdAt, likeCount, commentCount, imageURL, isPublic } = post;
+  const navigate = useNavigate();
+
+  const { id, nickname, title, tags, location, createdAt, likeCount, commentCount, imageURL, isPublic } = post;
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -9,8 +12,12 @@ function Chueokcard({ post, isPublicTab }) {
     return date.toLocaleDateString(undefined, options).replace(',', '');
   };
 
+  const handleCardClick = () => {
+    navigate(`/chueok/${id}`);
+  };
+
   return (
-    <div className={styles.cardContainer}>
+    <div className={styles.cardContainer} onClick={handleCardClick}>
       <img src={imageURL} alt="추억 이미지" className={styles.groupImage} />
       <div className={styles.cardContent}>
         {isPublicTab ? (

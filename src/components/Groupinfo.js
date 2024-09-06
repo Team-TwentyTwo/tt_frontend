@@ -33,9 +33,6 @@ function Groupinfo({ group }) {
           <span className={styles.likeCount}>공감 {likeCount}개</span>
         </div>
         <div className={styles.introduction}>{introduction}</div>
-        <div className={styles.badges}>
-          <span>획득 배지</span>
-        </div>
       </div>
       <div className={styles.likeButton}>
         <Likebutton /> 

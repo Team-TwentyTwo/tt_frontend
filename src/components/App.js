@@ -27,12 +27,6 @@ function App() {
         <Route path="/privategroup" element={<Privategroup />} />
       </Routes>
     </div>
-    
-    /*
-    <>
-      <GroupDetail />
-    </>
-    */
   );
 }
 

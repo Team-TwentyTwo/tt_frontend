@@ -1,6 +1,23 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './Groupcard.module.css';
+import axios from "axios"; 
 
 function Groupcard({ data, isPublicTab }) {
+
+  const navigate = useNavigate();
+
+  const handleCardClick = async () => {
+    if (data.isPublic) {
+      try {
+        const response = await axios.get(`https://zogakzip.onrender.com/api/groups/${data.id}`);
+        navigate('/group-detail', { state: { group: response.data } });
+      } catch (error) {
+        console.error("그룹 정보를 가져오는 중 오류 발생:", error);
+      }
+    } else {
+      navigate('/privategroup', { state: { groupId: data.id } });
+    }
+  };
 
   const calculateDDay = (createdAt) => {
     const createdDate = new Date(createdAt);
@@ -11,7 +28,7 @@ function Groupcard({ data, isPublicTab }) {
   };
 
   return (
-    <div className={styles.cardContainer}>
+    <div className={styles.cardContainer} onClick={handleCardClick}>
       {isPublicTab && (
         <>
           <img src={data.imageURL} alt={`${data.name} 이미지`} className={styles.groupImage} />

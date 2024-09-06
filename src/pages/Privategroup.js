@@ -22,7 +22,7 @@ function Privategroup() {
         navigate('/group-detail', { state: { group: groupResponse.data } });
       }
     } catch (error) {
-      if (error.response && error.response.status === 401) {
+      if (error.response && error.response.status === 403) {
         alert("그룹 비밀번호가 틀렸습니다.");
         navigate('/');
       } else {

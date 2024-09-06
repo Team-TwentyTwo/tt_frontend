@@ -10,6 +10,20 @@
     margin-top: 400px;
 }
 
+.modalconainer {
+  background: white;
+  z-index: 1001;
+  position: relative;
+  padding: 20px;
+  max-height: 1200px; /* 세로 최대 높이 조정 */
+  max-width: 70%;
+  width: auto;
+  height: auto; /* 자동 높이 조정 */
+  border-radius: 15px;
+}
+
+
+
 /* 부모 컨테이너 */
 .parentContainer {
   display: flex;
@@ -54,7 +68,7 @@
     font-size: 25px;
     font-weight: 900;
     position: absolute;
-    margin-top: -760px;
+    margin-top: -870px;
 
 }
 
@@ -124,11 +138,14 @@
         background-color: #FFF;
         cursor: pointer;
       }
-  .label{
-      font-size: 16px;
-      margin-bottom: 10px;
-      display: block;
-  }  
+
+
+.label {
+  font-size: 16px;
+  margin-bottom: 30px; /* 라벨과 입력 필드 사이의 간격을 20px로 설정 */
+  display: block;
+}
+ 
 
   .textarea {
     height: 100px;

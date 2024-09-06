@@ -71,13 +71,13 @@
 
 
 
-
 .title {
   font-size: 25px;
   font-weight: 900;
   position: absolute;
-  margin-top: -686.61px; /* 기존 -800px + 113.39px */
+  margin-top: -611.61px; /* 기존 -686.61px + 75px */
 }
+
 
 
 .inputGroup {

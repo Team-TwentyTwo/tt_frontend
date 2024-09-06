@@ -84,7 +84,7 @@
     height: 30px;
     position: absolute; /* 위치를 절대적으로 설정 */
     top: 300px;          /* 상단에서 20px 떨어진 위치 */
-    right: 650px;        /* 오른쪽에서 20px 떨어진 위치 */
+    right:-800px;        /* 오른쪽에서 20px 떨어진 위치 */
     padding: 6.68px 0px 0px 0px; /* 상단 패딩을 설정 */
     opacity: 1;        /* 요소를 보이도록 설정 */
   }

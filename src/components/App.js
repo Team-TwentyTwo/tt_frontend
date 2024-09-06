@@ -18,7 +18,7 @@ import Uploadmain from "../pages/Uploadmain";
 
 function App() {
   return (
-    /*
+    
     <div className={styles.appContainer}>
       <Routes>  
         <Route path="/" element={<Group />} />
@@ -27,10 +27,12 @@ function App() {
         <Route path="/privategroup" element={<Privategroup />} />
       </Routes>
     </div>
-    */
+    
+    /*
     <>
-      <Chueok />
+      <GroupDetail />
     </>
+    */
   );
 }
 

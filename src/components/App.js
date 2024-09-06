@@ -25,6 +25,7 @@ function App() {
         <Route path="/group-detail" element={<GroupDetail />} />
         <Route path="/makegroup" element={<Makegroup />} />  
         <Route path="/privategroup" element={<Privategroup />} />
+        <Route path="*" element={<Notfoundpage />} />
       </Routes>
     </div>
   );

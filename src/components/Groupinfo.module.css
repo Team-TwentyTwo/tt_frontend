@@ -7,6 +7,7 @@
   width: 260px;
   height: 260px;
   margin-right: 60px;
+  object-fit: cover;
 }
 
 .info {
@@ -20,15 +21,27 @@
   color: #282828;
 }
 
+.divider {
+  margin: 0 5px;
+  color: #B8B8B8;
+  position: relative;
+  left: 15px;
+}
+
 .publicStatus {
   margin-left: 15px;
   color: #B8B8B8;
+  position: relative;
+  left: 10px;
 }
 
 .actions {
   margin-left: auto;
+  position: absolute;
+  right: 35px;
   display: flex;
   gap: 40px;
+  color: #8D8D8D;
 }
 
 .actions span {
@@ -37,7 +50,8 @@
 
 .secondLine {
   display: flex;
-  gap: 40px;
+  align-items: center;
+  gap: 60px; 
   font-size: 18px;
   color: #282828;
   margin-top: 20px;
@@ -45,12 +59,30 @@
 
 .name {
   font-size: 30px;
+  font-weight: bold;
+}
+
+.postCount {
+  left: 30px; 
+  font-weight: bold;
+}
+
+.likeCount {
+  left: 30px; 
+  font-weight: bold;
+}
+
+.separator {
+  margin-left: 5px;
+  margin-right: 5px; 
+  color:#B8B8B8;
 }
 
 .introduction {
   margin-top: 20px;
   font-size: 18px;
   color: #282828;
+  margin-right: 100px;
 }
 
 .badges {
@@ -59,4 +91,6 @@
 
 .likeButton {
   margin-top: 180px;
+  right: 30px;
+  position: absolute;
 }

@@ -7,6 +7,7 @@
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 180px;
 }
 
 .likeButton:hover {
@@ -14,12 +15,17 @@
 }
 
 .flowericon {
+  position: relative;
   width: 20px;  /* 아이콘 크기 */
   height: 20px;
+  left: 10px;
   margin-right: 8px;  /* 아이콘과 텍스트 사이 간격 */
 }
 
 .buttonText {
+  position: relative;
+  left: 12px;
+  text-align: center;
   font-size: 16px;
   font-weight: 500;
 }

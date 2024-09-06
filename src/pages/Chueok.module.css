@@ -160,9 +160,8 @@
 /* 좋아요 버튼 스타일 */
 .likebutton {
   position: absolute;
-  top: 20%; /* 화면의 20% 아래 위치 */
-  left: 60%; /* 화면의 80% 오른쪽 위치 */
-  transform: translate(-50%, -50%); /* 버튼의 중심을 기준으로 위치 조정 */
+  margin-top: 250px;
+  right: 100px;
 }
 
 

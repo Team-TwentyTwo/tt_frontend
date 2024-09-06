@@ -28,11 +28,6 @@ function App() {
         <Route path="*" element={<Notfoundpage />} />
       </Routes>
     </div>
-    /*
-    <>
-      <Chueok />
-    </>
-    */
   );
 }
 

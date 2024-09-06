@@ -21,7 +21,8 @@ function Groupinfo({ group }) {
       <div className={styles.info}>
         <div className={styles.firstLine}>
           <span>D+{daysSinceCreated}</span>
-          <span className={styles.publicStatus}>| {publicStatus}</span>
+          <span className={styles.divider}>|</span>
+          <span className={styles.publicStatus}>{publicStatus}</span>
           <div className={styles.actions}>
             <span onClick={handleEdit}>그룹 정보 수정하기</span>
             <span onClick={handleDelete}>그룹 삭제하기</span>
@@ -29,8 +30,9 @@ function Groupinfo({ group }) {
         </div>
         <div className={styles.secondLine}>
           <span className={styles.name}>{name}</span>
-          <span className={styles.postCount}>게시글 {postCount}개</span>
-          <span className={styles.likeCount}>공감 {likeCount}개</span>
+          <span className={styles.postCount}>추억 {postCount}</span>
+          <span className={styles.separator}>|</span>
+          <span className={styles.likeCount}>그룹 공감 {likeCount}</span>
         </div>
         <div className={styles.introduction}>{introduction}</div>
       </div>

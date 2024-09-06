@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './Chueokcard.module.css';
+import likeIcon from '../assets/icon_flower.svg';
+import comIcon from '../assets/icon_bubble.svg';
 
 function Chueokcard({ post, isPublicTab }) {
   const navigate = useNavigate();
@@ -22,18 +24,45 @@ function Chueokcard({ post, isPublicTab }) {
       <div className={styles.cardContent}>
         {isPublicTab ? (
           <>
-            <p>{nickname}</p>
-            <h3 className={styles.title}>{title}</h3>
-            <p>{tags.join(', ')}</p>
-            <p className={styles.footer}>
-              {location}  ·  {formatDate(createdAt)}    {likeCount} / {commentCount}
+            <p className={styles.nicknameRow}>
+              {nickname}
+              <span className={styles.divider}>|</span>
+              <span className={styles.status}>{isPublic ? '공개' : '비공개'}</span>
             </p>
+            <h3 className={styles.title}>{title}</h3>
+            <p className={styles.tags}>{tags.join(', ')}</p>
+            <div className={styles.footer}>
+              <p>{location} · {formatDate(createdAt)}</p>
+              <div className={styles.likeCommentContainer}>
+                <p>
+                  <img src={likeIcon} alt="좋아요 아이콘" className={styles.likeIcon} />
+                  {likeCount}
+                </p>
+                <p>
+                  <img src={comIcon} alt="댓글 아이콘" className={styles.comIcon} />
+                  {commentCount}
+                </p>
+              </div>
+            </div>
           </>
         ) : (
           <>
-            <p>{nickname}</p>
+            <p className={styles.nicknameRow}>
+              {nickname}
+              <span className={styles.divider}>|</span>
+              <span className={styles.status}>{isPublic ? '공개' : '비공개'}</span>
+            </p>
             <h3 className={styles.title}>{title}</h3>
-            <p>{likeCount} / {commentCount}</p>
+            <div className={styles.likeCommentContainer}>
+              <p>
+                <img src={likeIcon} alt="좋아요 아이콘" className={styles.likeIcon} />
+                {likeCount}
+              </p>
+              <p>
+                <img src={comIcon} alt="댓글 아이콘" className={styles.comIcon} />
+                {commentCount}
+              </p>
+            </div>
           </>
         )}
       </div>

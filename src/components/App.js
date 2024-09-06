@@ -18,7 +18,7 @@ import Uploadmain from "../pages/Uploadmain";
 
 function App() {
   return (
-    
+    /*
     <div className={styles.appContainer}>
       <Routes>  
         <Route path="/" element={<Group />} />
@@ -28,12 +28,10 @@ function App() {
         <Route path="*" element={<Notfoundpage />} />
       </Routes>
     </div>
-    
-    /*
-    <>
-      <GroupDetail />
-    </>
     */
+    <>
+      <Chueok />
+    </>
   );
 }
 

@@ -1,15 +1,13 @@
-.container{
-
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 300px);
-  
-  }
+.container {
+  max-width: 600px;
+  margin: 100px auto 0 auto; /* 위쪽 여백을 50px로 설정 */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 300px);
+}
 
   .title{
 

@@ -18,21 +18,16 @@ import Uploadmain from "../pages/Uploadmain";
 
 function App() {
   return (
-    
     <div className={styles.appContainer}>
       <Routes>  
         <Route path="/" element={<Group />} />
         <Route path="/group-detail" element={<GroupDetail />} />
         <Route path="/makegroup" element={<Makegroup />} />  
         <Route path="/privategroup" element={<Privategroup />} />
+        <Route path="/chueok/:id" element={<Chueok />} />
+        <Route path="*" element={<Notfoundpage />} />
       </Routes>
     </div>
-    
-    /*
-    <>
-      <GroupDetail />
-    </>
-    */
   );
 }
 

@@ -140,7 +140,7 @@
   top: 350px;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 1; /* 보이게 설정 */
+  z-index: 1;
 }
 
 /* 댓글 남기기 버튼 스타일 */
@@ -155,24 +155,19 @@
   opacity: 1; /* 보이게 설정 */
 }
 
-/* 좋아요 버튼 컨테이너 스타일 */
-.likebuttonContainer {
-  position: absolute;
-  width: auto; /* Hug 기능 제거 */
-  height: auto; /* Hug 기능 제거 */
-  top: 220px;
-  left: 1350px;
-  padding: 15px 40px;
-  border-radius: 6px;
-  opacity: 1; /* 보이게 설정 */
-}
+
 
 /* 좋아요 버튼 스타일 */
 .likebutton {
   position: absolute;
-  top: 1500px; /* 위치 조정 */
-  left: 1350px;
+  margin-top: 250px;
+  right: 100px;
 }
+
+
+
+
+
 
 /* 공감 숫자 스타일 */
 .flowernumb {

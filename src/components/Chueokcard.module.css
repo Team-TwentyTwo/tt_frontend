@@ -9,7 +9,9 @@
 
 .title {
   font-weight: bold;
-  margin: 10px 0;
+  font-size: 16px;
+  color: #282828;
+  margin: 20px 0 10px 0; 
 }
 
 .groupImage {
@@ -28,9 +30,66 @@
   flex-direction: column;
 }
 
+.nicknameRow {
+  font-size: 14px;
+  color: #282828;
+  display: flex;
+  align-items: center;
+}
+
+.status {
+  position: relative;
+  left: 20px;
+  color: #B8B8B8;
+}
+
+.divider {
+  margin: 0 5px;
+  color: #B8B8B8;
+  position: relative;
+  left: 10px;
+}
+
+.tags {
+  font-size: 14px;
+  color: #B8B8B8;
+  margin-bottom: 25px; 
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  align-items: center;
+  font-size: 12px;
   color: #282828;
+  margin-bottom: 10px;
+}
+
+.footer p {
+  margin: 0; 
+}
+
+.likeCommentContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.likeCommentContainer p {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #8D8D8D;
+}
+
+.likeIcon {
+  width: 18px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.comIcon {
+  width: 24px;
+  margin-left: 5px;
+  margin-right: 5px;
 }

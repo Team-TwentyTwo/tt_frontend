@@ -10,6 +10,28 @@
     margin-top: 400px;
 }
 
+.modalconainer {
+  background: white;
+  z-index: 1001;
+  position: absolute;
+  padding: 20px; /* 내부 여백 조정 */
+  height: 80%; /* 모달의 세로 길이를 비율로 조정 (80%는 부모의 80%) */
+  max-height: 1000px; /* 최대 높이 설정 */
+  min-height: 600px; /* 최소 높이 설정 */
+  max-width: 70%;
+  width: auto;
+  border-radius: 15px;
+  
+}
+
+
+
+
+
+
+
+
+
 /* 부모 컨테이너 */
 .parentContainer {
   display: flex;
@@ -30,7 +52,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100%; /* 부모 컨테이너의 높이와 맞추기 */
-  
+  margin-top: 200px; /* 3cm 만큼 아래로 이동 */
 }
 
 /* 두 번째 컨테이너 */
@@ -42,21 +64,22 @@
   justify-content: center;
   align-items: center;
   min-height: 100%; /* 부모 컨테이너의 높이와 맞추기 */
-  
+  margin-top: 200px; /* 3cm 만큼 아래로 이동 */
 }
 
 
 
 
 
-.title{
-
-    font-size: 25px;
-    font-weight: 900;
-    position: absolute;
-    margin-top: -760px;
-
+.title {
+  font-size: 25px;
+  font-weight: 900;
+  position: absolute;
+  margin-top: -740px;  
 }
+
+
+
 
 .inputGroup {
 
@@ -124,11 +147,24 @@
         background-color: #FFF;
         cursor: pointer;
       }
-  .label{
-      font-size: 16px;
-      margin-bottom: 10px;
-      display: block;
-  }  
+
+
+      .tabWrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px; /* tab 버튼과 다음 요소 사이의 간격을 30px로 설정 */
+      }
+      
+     
+      
+      
+
+.label {
+  font-size: 16px;
+  margin-bottom: 20px; /* 라벨과 입력 필드 사이의 간격을 20px로 설정 */
+  display: block;
+}
+ 
 
   .textarea {
     height: 100px;
@@ -151,16 +187,17 @@
     cursor: pointer;
   }
 
-  .editbtContainer{
+  .editbtContainer {
     text-align: center;
-    margin-top: -80px;
+    margin-top: 188.98px; /* 5cm 만큼 아래로 이동 */
   }
-
-  .editbt{
+  
+  .editbt {
     width: 400px;
     height: 50px;
     cursor: pointer;
   }
+  
 
 
   .xbt {
@@ -196,6 +233,7 @@
     max-width: 70%;
     width: auto;
     height: auto; 
+    border-radius: 15px;
 
   }
 
@@ -211,4 +249,5 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    
   }

@@ -26,7 +26,7 @@
   height: 75px;
   margin: -280px auto 0 auto; /* 위로 100px 이동 */
   opacity: 1;
-  border-radius: 30px; /* 모서리 둥글게 하기 */ /*왜 둥길게 안돼지*/
+  
 } 
 
 
@@ -39,6 +39,8 @@
   border-radius: 6px;
   border: 1px solid #DDDDDD;
   transition: border-color 0.3s ease;
+  position: absolute;
+  margin-top: -25px;
   
 }
 
@@ -53,8 +55,11 @@
 
 .label{
     font-size: 16px;
-    margin-bottom: 8px;
+    position:absolute;
+    margin-top: -60px;
+    margin-bottom: 4px;
     display: block;
+
 }  
 
 
@@ -82,9 +87,9 @@
   .xbt {
     width: 30px;
     height: 30px;
-    position: absolute; /* 위치를 절대적으로 설정 */
-    top: 300px;          /* 상단에서 20px 떨어진 위치 */
-    right: 650px;        /* 오른쪽에서 20px 떨어진 위치 */
+    position: absolute; 
+    top: 12px;          
+    right:12px;        
     padding: 6.68px 0px 0px 0px; /* 상단 패딩을 설정 */
     opacity: 1;        /* 요소를 보이도록 설정 */
   }
@@ -98,6 +103,7 @@
     max-width: 70%;
     width: auto;
     height: auto; 
+    border-radius: 15px;
 
   }
 

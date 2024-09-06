@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import styles from './GroupDetail.module.css';
 import Header from '../components/Header';
 import Groupinfo from '../components/Groupinfo';
@@ -10,23 +11,14 @@ function GroupDetail() {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState('latest');
 
-  const groupData = {
-    id: 1,
-    name: "달봉이네 가족",
-    imageURL: "https://example.com/image.jpg",
-    isPublic: true,
-    likeCount: 1500,
-    badges: ["badge1", "badge2"],
-    postCount: 8,
-    createdAt: "2024-02-22T07:47:49.803Z",
-    introduction: "서로 한 마음으로 응원하고 아끼는 달봉이네 가족입니다."
-  };
+  const location = useLocation();
+  const { group } = location.state;
 
   return (
     <>
       <Header />
       <div className={styles.container}>
-        <Groupinfo group={groupData} />
+        <Groupinfo group={group} />
         <h1 className={styles.title}>추억 목록</h1>
         <Menubar2 
           activeTab={activeTab} 
@@ -35,7 +27,7 @@ function GroupDetail() {
           searchTerm={searchTerm} 
           setSearchTerm={setSearchTerm}
         />
-        <Chueoklist groupId={groupData.id} />
+        <Chueoklist groupId={group.id} />
       </div>
     </>
   );

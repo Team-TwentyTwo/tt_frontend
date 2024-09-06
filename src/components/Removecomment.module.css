@@ -1,13 +1,14 @@
 .container{
 
-    max-width: 600px;
+    max-width: 400px;
     margin: 0 auto;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 300px);
+    margin-top: 400px;
+    z-index: 10000;
   
   }
   
@@ -16,17 +17,20 @@
       font-size: 20px;
       font-weight: 700;
       text-align: center;
-      margin-bottom: 30px;
+      position: absolute;
+      margin-top: -800px;
+  
   
   }
   
   .inputGroup {
-  
-    width: 400px;
+    width: 420px;
     height: 75px;
     margin: -280px auto 0 auto; /* 위로 100px 이동 */
     opacity: 1;
   }
+  
+  
   
   
   
@@ -37,6 +41,8 @@
     border-radius: 6px;
     border: 1px solid #DDDDDD;
     transition: border-color 0.3s ease;
+    position: absolute;
+    margin-top: -25px;
   
   }
   
@@ -50,9 +56,11 @@
     
   
   .label{
-      font-size: 16px;
-      margin-bottom: 8px;
-      display: block;
+    font-size: 16px;
+    position:absolute;
+    margin-top: -60px;
+    margin-bottom: 4px;
+    display: block;
   }  
   
   
@@ -79,11 +87,37 @@
   
     .xbt {
       width: 30px;
-      height: 30px;
-      position: absolute; /* 위치를 절대적으로 설정 */
-      top: 300px;          /* 상단에서 20px 떨어진 위치 */
-      right: 650px;        /* 오른쪽에서 20px 떨어진 위치 */
-      padding: 6.68px 0px 0px 0px; /* 상단 패딩을 설정 */
-      opacity: 1;        /* 요소를 보이도록 설정 */
+    height: 30px;
+    position: absolute; 
+    top: 12px;          
+    right:12px;        
+    padding: 6.68px 0px 0px 0px; 
+    opacity: 1; 
+    }
+
+    .modalconainer {
+      background: white;
+      z-index: 1001;
+      position: relative;
+      padding: 20px; /* 모달 내부 여백 */
+      max-height: 1000px; /* 최대 너비 설정 */
+      max-width: 70%;
+      width: auto;
+      height: auto; 
+      border-radius: 15px;
+  
     }
     
+      /* 모달 배경을 어둡게 처리 */
+  .modalBackdrop {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);  /* 반투명 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }

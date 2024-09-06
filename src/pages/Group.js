@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";  
 import Header from '../components/Header';
 import Menubar from '../components/Menubar';
@@ -12,36 +12,48 @@ function Group() {
   const [sortBy, setSortBy] = useState('latest');  
   const [searchTerm, setSearchTerm] = useState('');  
   const [groupCards, setGroupCards] = useState([]);  
+  const [filteredCards, setFilteredCards] = useState([]); 
   const [loading, setLoading] = useState(true);  
   const [page, setPage] = useState(1);  
   const [totalPages, setTotalPages] = useState(1);  
 
   const navigate = useNavigate();  
+  const location = useLocation();
 
   const handleButtonClick = () => {
     navigate('/makegroup');
   };
 
-  // 그룹 목록을 불러오는 함수
+  useEffect(() => {
+    if (location.state?.reset) {
+      setActiveTab('public');  
+      setSortBy('latest');     
+      setSearchTerm('');       
+      setPage(1);              
+      fetchGroups(true);       
+      navigate('/', { state: {} });
+    }
+  }, [location.state]);
+
   const fetchGroups = async (reset = false) => {
     setLoading(true);  
     try {
       const response = await axios.get('https://zogakzip.onrender.com/api/groups', {
         params: {
           page: page,
-          pageSize: 8,  // 한 번에 8개씩 불러오기
+          pageSize: 8,  
           sortBy: sortBy,
-          keyword: searchTerm,
-          isPublic: activeTab === 'public',  // 공개/비공개 필터링
+          isPublic: activeTab === 'public',  
         }
       });
 
       if (reset) {
-        // 새로 정렬하거나 탭을 전환할 때 목록을 초기화
         setGroupCards(response.data.data);
+        setFilteredCards(response.data.data); 
       } else {
-        // 기존 목록에 새로 불러온 그룹 카드 추가
-        setGroupCards(prevCards => [...prevCards, ...response.data.data]);
+        const newCards = [...groupCards, ...response.data.data];
+        setGroupCards(newCards);
+        setFilteredCards(newCards); 
       }
 
       setTotalPages(response.data.totalPages);  
@@ -52,28 +64,46 @@ function Group() {
     }
   };
 
-  // 정렬 옵션 변경 시 목록을 새로 불러오고 기존 목록 초기화
   useEffect(() => {
-    setPage(1);  // 페이지를 1로 초기화
-    fetchGroups(true);  // 목록 초기화 후 새로 불러오기
+    fetchGroups(true); 
+  }, []);
+
+  useEffect(() => {
+    setPage(1);  
+    fetchGroups(true);  
   }, [sortBy]);
 
-  // 공개/비공개 탭 변경 시 목록을 새로 불러오고 기존 목록 초기화
   useEffect(() => {
-    setPage(1);  // 페이지를 1로 초기화
-    fetchGroups(true);  // 목록 초기화 후 새로 불러오기
+    setPage(1);  
+    fetchGroups(true);  
   }, [activeTab]);
 
-  // 페이지 변경 시 추가 목록 불러오기 (더보기 버튼 클릭 시)
   useEffect(() => {
     if (page > 1) {
       fetchGroups();
     }
   }, [page]);
 
+  const filterGroups = () => {
+    if (searchTerm.trim() === "") {
+      setFilteredCards(groupCards); 
+    } else {
+      const filtered = groupCards.filter((group) =>
+        group.name.toLowerCase().includes(searchTerm.toLowerCase())  
+      );
+      setFilteredCards(filtered);  
+    }
+  };
+
+  useEffect(() => {
+    if (searchTerm) {
+      filterGroups();  
+    }
+  }, [searchTerm]);
+
   const handleLoadMore = () => {
     if (page < totalPages) {
-      setPage(prevPage => prevPage + 1);  // 페이지 수 증가
+      setPage(prevPage => prevPage + 1);  
     }
   };
 
@@ -95,16 +125,15 @@ function Group() {
           setActiveTab={setActiveTab}
           setSortBy={setSortBy} 
           searchTerm={searchTerm} 
-          setSearchTerm={setSearchTerm}
+          setSearchTerm={setSearchTerm} 
         />
       </div>
       {loading ? ( 
-        <div>로딩 중...</div>
+        <div className={styles.loadingText}>로딩 중...</div>
       ) : (
         <div>
-          <Grouplist cards={groupCards} activeTab={activeTab} />
-          {/* 8개 이상의 카드가 로드된 경우에만 더보기 버튼 활성화 */}
-          {groupCards.length % 8 === 0 && page < totalPages && (
+          <Grouplist cards={filteredCards} activeTab={activeTab} />  
+          {filteredCards.length !== 0 && filteredCards.length % 8 === 0 && page < totalPages && (
             <div className={styles.loadMoreContainer}>
               <button className={styles.loadMoreButton} onClick={handleLoadMore}>
                 더보기

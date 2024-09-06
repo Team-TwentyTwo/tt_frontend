@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Menubar.module.css';
 import searchIcon from "../assets/icon_search.svg";
 import sortIcon from "../assets/icon_dropdown.svg";
@@ -6,10 +6,21 @@ import sortIcon from "../assets/icon_dropdown.svg";
 function Menubar({ activeTab, setActiveTab, setSortBy, searchTerm, setSearchTerm }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedSort, setSelectedSort] = useState('공감순');
+  const [inputValue, setInputValue] = useState(searchTerm);  
 
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value); 
+    setInputValue(e.target.value); 
   };
+
+  const handleSearchKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      setSearchTerm(inputValue); 
+    }
+  };
+
+  useEffect(() => {
+    setInputValue(searchTerm); 
+  }, [searchTerm]);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);  
@@ -25,19 +36,19 @@ function Menubar({ activeTab, setActiveTab, setSortBy, searchTerm, setSearchTerm
 
     switch (sortOption) {
       case '최신순':
-        setSortBy('latest');  // 최신순
+        setSortBy('latest');  
         break;
       case '게시글 많은순':
-        setSortBy('mostPosted');  // 게시글 많은 순
+        setSortBy('mostPosted');  
         break;
       case '공감순':
-        setSortBy('mostLiked');  // 공감순
+        setSortBy('mostLiked');  
         break;
       case '획득 배지순':
-        setSortBy('mostBadge');  // 획득 배지순
+        setSortBy('mostBadge');  
         break;
       default:
-        setSortBy('latest');  // 기본값: 최신순
+        setSortBy('latest');  
         break;
     }
   };
@@ -64,8 +75,9 @@ function Menubar({ activeTab, setActiveTab, setSortBy, searchTerm, setSearchTerm
           type="text"
           placeholder="그룹명을 검색해 주세요"
           className={styles.searchBar}
-          value={searchTerm}
-          onChange={handleSearchChange}  // 검색어 입력 처리
+          value={inputValue}  
+          onChange={handleSearchChange}  
+          onKeyPress={handleSearchKeyPress}  
         />
       </div>
       <div className={styles.sortFilter} onClick={toggleDropdown}>

@@ -52,7 +52,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100%; /* 부모 컨테이너의 높이와 맞추기 */
-  
+  margin-top: 200px; /* 3cm 만큼 아래로 이동 */
 }
 
 /* 두 번째 컨테이너 */
@@ -64,21 +64,21 @@
   justify-content: center;
   align-items: center;
   min-height: 100%; /* 부모 컨테이너의 높이와 맞추기 */
-  
+  margin-top: 200px; /* 3cm 만큼 아래로 이동 */
 }
 
 
 
 
 
-.title{
 
-    font-size: 25px;
-    font-weight: 900;
-    position: absolute;
-    margin-top: -970px;
-
+.title {
+  font-size: 25px;
+  font-weight: 900;
+  position: absolute;
+  margin-top: -686.61px; /* 기존 -800px + 113.39px */
 }
+
 
 .inputGroup {
 
@@ -176,16 +176,17 @@
     cursor: pointer;
   }
 
-  .editbtContainer{
+  .editbtContainer {
     text-align: center;
-    margin-top: -80px;
+    margin-top: 188.98px; /* 5cm 만큼 아래로 이동 */
   }
-
-  .editbt{
+  
+  .editbt {
     width: 400px;
     height: 50px;
     cursor: pointer;
   }
+  
 
 
   .xbt {

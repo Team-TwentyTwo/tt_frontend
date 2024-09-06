@@ -75,8 +75,9 @@
   font-size: 25px;
   font-weight: 900;
   position: absolute;
-  margin-top: -573.22px; 
+  margin-top: -700px; /* 기존 -573.22px - 188.98px */
 }
+
 
 
 

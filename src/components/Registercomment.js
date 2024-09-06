@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styles from './Registercomment.module.css';
+import x from '../assets/icon_x.svg';
 import registerbutton from '../assets/register_button.svg';
 
 
@@ -20,8 +21,22 @@ function Registercomment({ onClose }) {
       <>
         
 
-        
+        <div className={styles.modalBackdrop}>
+       <div className={styles.modalconainer}>
          <div className={styles.container}>
+
+         <div>
+        {/* Close Button */}
+        <img 
+          src={x} 
+          alt="닫기" 
+          className={styles.closeButton}
+          onClick={onClose} 
+        />
+        </div>
+
+
+          
          <h1 className={styles.title}>댓글 등록</h1>
            
            <div className={styles.inputGroup}>
@@ -60,6 +75,8 @@ function Registercomment({ onClose }) {
            className={styles.registerbt} 
          />
        </div>  
+         </div>
+         </div>
          </div>
       </>
     );

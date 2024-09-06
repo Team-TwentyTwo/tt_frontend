@@ -122,7 +122,11 @@ function Chueok() {
 
       <div className={styles.container}>
         <p className={styles.text}>
-          인천 앞바다에서 월척을 낚았습니다! 가족들과 기억에 오래도록 남을 멋진 하루였어요.
+          인천 앞바다에서 월척을 낚았습니다! 
+          가족들과 기억에 오래도록 남을 멋진 하루였어요. 가족들과 기억에 오래도록 남을 멋진 하루였어요 
+          가족들과 기억에 오래도록 남을 멋진 하루였어요.
+          
+      
         </p>
         <img className={styles.mainpic} src={chueokfish} alt="추억상세페이지기본사진" />
       </div>

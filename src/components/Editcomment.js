@@ -26,7 +26,11 @@ function Editcomment({ onClose }) {
 
   return (
     <>
+       <div className={styles.modalBackdrop}>
+       <div className={styles.modalcontainer}>
       <div className={styles.container}>
+        
+        <div>
         {/* Close Button */}
         <img 
           src={x} 
@@ -34,6 +38,7 @@ function Editcomment({ onClose }) {
           className={styles.closeButton}
           onClick={onClose} 
         />
+        </div>
 
         <h1 className={styles.title}>댓글 수정</h1>
 
@@ -61,7 +66,7 @@ function Editcomment({ onClose }) {
           </div>
 
           <div>
-            <label className={styles.label}>수정 권한 인증</label>
+            <label className={styles.label}>비밀번호</label>
             <input
               type="password"
               value={password}
@@ -78,6 +83,8 @@ function Editcomment({ onClose }) {
             </button>
           </div>
         </form>
+      </div>
+      </div>
       </div>
     </>
   );

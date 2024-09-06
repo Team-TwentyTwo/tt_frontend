@@ -13,14 +13,22 @@
 .modalconainer {
   background: white;
   z-index: 1001;
-  position: relative;
-  padding: 20px;
-  max-height: 1200px; /* 세로 최대 높이 조정 */
+  position: absolute;
+  padding: 20px; /* 내부 여백 조정 */
+  height: 80%; /* 모달의 세로 길이를 비율로 조정 (80%는 부모의 80%) */
+  max-height: 1000px; /* 최대 높이 설정 */
+  min-height: 600px; /* 최소 높이 설정 */
   max-width: 70%;
   width: auto;
-  height: auto; /* 자동 높이 조정 */
   border-radius: 15px;
+  
 }
+
+
+
+
+
+
 
 
 
@@ -68,7 +76,7 @@
     font-size: 25px;
     font-weight: 900;
     position: absolute;
-    margin-top: -870px;
+    margin-top: -970px;
 
 }
 

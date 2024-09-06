@@ -1,0 +1,166 @@
+.parentContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+    height: calc(100vh - 300px);
+    padding-top: 100px;  /* 제목의 공간을 위해 패딩 추가 */
+  }
+  
+  /* 제목 스타일 */
+  .title {
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    position: absolute;  
+    top: 200px;           /* 원하는 높이로 제목 이동 */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+
+/* 첫 번째 컨테이너 */
+.firstcontainer {
+  max-width: 600px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%; /* 부모 컨테이너의 높이와 맞추기 */
+  
+}
+
+/* 두 번째 컨테이너 */
+.secondcontainer {
+  max-width: 600px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%; /* 부모 컨테이너의 높이와 맞추기 */
+  
+}
+
+
+
+
+
+.title{
+
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+
+}
+
+.inputGroup {
+
+    width: 400px;
+    opacity: 1;
+  }
+  
+  
+  
+  .input{
+  
+    width: 400px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #DDDDDD;
+    transition: border-color 0.3s ease;
+    margin-bottom:20px;
+
+  
+  }
+
+  .commentinput {
+
+    width: 400px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #DDDDDD;
+    transition: border-color 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  .input:focus {
+      border-color: #282828;
+    }
+    
+    .input::placeholder {
+      color: #B8B8B8;
+    }
+    
+    .fileInputWrapper {
+        display: flex;
+        align-items: center;
+      }
+      
+      .hiddenFileInput {
+        display: none;
+      }
+      
+      .fileDisplayInput {
+        flex: 1;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #DDDDDD;
+        cursor: not-allowed;
+      }
+      
+      .fileDisplayInput::placeholder {
+        color: #B8B8B8;
+      }
+      
+      .fileButton {
+        margin-left: 10px;
+        padding: 10px 15px;
+        border-radius: 6px;
+        border: 1px solid #282828;
+        background-color: #FFF;
+        cursor: pointer;
+      }
+  .label{
+      font-size: 16px;
+      margin-bottom: 20px;
+      display: block;
+  }  
+
+  .textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  .tabWrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .tabText {
+    font-size: 14px;
+    margin-right: 20px;
+  }
+  
+  .tab {
+    width: 48px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  .oligiContainer{
+    text-align: center;
+    margin-top: -80px;
+  }
+
+  .oligibt{
+    width: 400px;
+    height: 50px;
+    cursor: pointer;
+  }
+
+

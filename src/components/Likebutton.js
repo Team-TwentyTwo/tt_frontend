@@ -1,11 +1,18 @@
-import like_button  from '../assets/like.svg';
-import styles from './Likebutton.module.css';
+import React from 'react';
+import chueokflowericon from '../assets/icon_flower.svg';
+import styles from './Likebutton.module.css';  // 스타일을 적용할 CSS 파일을 import
 
-function Likebutton() {
+function Likebutton({ onLike }) {
   return (
-    <div>
-      <img className={styles.likebutton} src={like_button} alt="공감보내기버튼" />
-    </div>
+    <button onClick={onLike} className={styles.likeButton}>
+    
+      <img
+        src={chueokflowericon}
+        alt="추억공감아이콘"
+        className={styles.flowericon}
+      />
+      <span className={styles.buttonText}>공감 보내기</span>
+    </button>
   );
 }
 

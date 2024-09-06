@@ -1,0 +1,214 @@
+.titlecontainer{
+
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 400px;
+}
+
+/* 부모 컨테이너 */
+.parentContainer {
+  display: flex;
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center; /* 수직 가운데 정렬 */
+  gap: 50px; /* 컨테이너 사이의 간격 조정 */
+  padding: 20px; /* 부모 컨테이너 패딩 */
+  height: calc(100vh - 300px); /* 부모 컨테이너 높이 설정 */
+  margin-top: -500px;
+}
+
+/* 첫 번째 컨테이너 */
+.firstcontainer {
+  max-width: 600px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%; /* 부모 컨테이너의 높이와 맞추기 */
+  
+}
+
+/* 두 번째 컨테이너 */
+.secondcontainer {
+  max-width: 600px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%; /* 부모 컨테이너의 높이와 맞추기 */
+  
+}
+
+
+
+
+
+.title{
+
+    font-size: 25px;
+    font-weight: 900;
+    position: absolute;
+    margin-top: -760px;
+
+}
+
+.inputGroup {
+
+    width: 400px;
+    opacity: 1;
+  }
+  
+  
+  
+  .input{
+  
+    width: 400px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #DDDDDD;
+    transition: border-color 0.3s ease;
+    margin-bottom:10px;
+  
+  }
+
+  .commentinput {
+
+    width: 400px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #DDDDDD;
+    transition: border-color 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  .input:focus {
+      border-color: #282828;
+    }
+    
+    .input::placeholder {
+      color: #B8B8B8;
+    }
+    
+    .fileInputWrapper {
+        display: flex;
+        align-items: center;
+      }
+      
+      .hiddenFileInput {
+        display: none;
+      }
+      
+      .fileDisplayInput {
+        flex: 1;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #DDDDDD;
+        cursor: not-allowed;
+      }
+      
+      .fileDisplayInput::placeholder {
+        color: #B8B8B8;
+      }
+      
+      .fileButton {
+        margin-left: 10px;
+        padding: 10px 15px;
+        border-radius: 6px;
+        border: 1px solid #282828;
+        background-color: #FFF;
+        cursor: pointer;
+      }
+  .label{
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: block;
+  }  
+
+  .textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  .tabWrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .tabText {
+    font-size: 14px;
+    margin-right: 20px;
+  }
+  
+  .tab {
+    width: 48px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  .editbtContainer{
+    text-align: center;
+    margin-top: -80px;
+  }
+
+  .editbt{
+    width: 400px;
+    height: 50px;
+    cursor: pointer;
+  }
+
+
+  .xbt {
+    width: 30px;
+    height: 30px;
+    position: absolute; /* 위치를 절대적으로 설정 */
+    top: 10px;          /* 상단에서 20px 떨어진 위치 */
+    right: 15px;        /* 오른쪽에서 20px 떨어진 위치 */
+    padding: 6.68px 0px 0px 0px; /* 상단 패딩을 설정 */
+    opacity: 1;        /* 요소를 보이도록 설정 */
+  }
+  
+  .background {
+    position: fixed;
+    top: 0px;
+    left:0px;
+    width: 100;
+    height:100%;
+    background: rgba (0, 0, 0, 0.30);
+    display: felx;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+  }
+
+  .modalconainer {
+    background: white;
+    z-index: 1001;
+    position: relative;
+    padding: 20px; /* 모달 내부 여백 */
+    max-height: 1000px; /* 최대 너비 설정 */
+    max-width: 70%;
+    width: auto;
+    height: auto; 
+
+  }
+
+  /* 모달 배경을 어둡게 처리 */
+  .modalBackdrop {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);  /* 반투명 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }

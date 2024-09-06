@@ -1,0 +1,89 @@
+.container{
+
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 300px);
+  
+  }
+  
+  .title{
+  
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 30px;
+  
+  }
+  
+  .inputGroup {
+  
+    width: 400px;
+    height: 75px;
+    margin: -280px auto 0 auto; /* 위로 100px 이동 */
+    opacity: 1;
+  }
+  
+  
+  
+  .input{
+  
+    width: 400px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #DDDDDD;
+    transition: border-color 0.3s ease;
+  
+  }
+  
+  .input:focus {
+      border-color: #282828;
+    }
+    
+    .input::placeholder {
+      color: #B8B8B8;
+    }
+    
+  
+  .label{
+      font-size: 16px;
+      margin-bottom: 8px;
+      display: block;
+  }  
+  
+  
+  
+  .uploadbtContainer {
+      text-align: center;
+      margin-top: 10px;
+  
+  }
+  
+  .uploadbt{
+      width: 400px;
+      height: 50px;
+      cursor: pointer;
+  
+  }
+  
+  .description {
+      color: #282828;
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+  
+    .xbt {
+      width: 30px;
+      height: 30px;
+      position: absolute; /* 위치를 절대적으로 설정 */
+      top: 300px;          /* 상단에서 20px 떨어진 위치 */
+      right: 650px;        /* 오른쪽에서 20px 떨어진 위치 */
+      padding: 6.68px 0px 0px 0px; /* 상단 패딩을 설정 */
+      opacity: 1;        /* 요소를 보이도록 설정 */
+    }
+    
